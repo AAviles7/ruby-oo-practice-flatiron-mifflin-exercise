@@ -1,4 +1,4 @@
-require "./Employee.rb"
+# require "./Employee.rb"
 
 class Manager
     attr_accessor :name, :department
@@ -30,9 +30,9 @@ class Manager
     end
 
     def self.average_age
-        temp = @@all.select{|manager| manager.age}
-        ans = (temp.sum(0.0))/temp.size
-        return ans
+        temp = 0
+        @@all.each{|manager| temp += manager.age}
+        ans = temp/@@all.length
     end
 
 end

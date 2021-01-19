@@ -1,4 +1,4 @@
-require "./Manager.rb"
+# require "./Manager.rb"
 
 class Employee
     attr_accessor :name, :manager
@@ -19,14 +19,14 @@ class Employee
         @@all
     end
 
-    def paid_over(salary)
+    def self.paid_over(salary)
         return @@all.select{|employee| employee.salary > salary}
     end
 
-    def find_by_department(department)
+    def self.find_by_department(department)
         all = Manager.all
-        manage = all.find{|manager| manager.department == department}
-        return manage.employees[0]
+        manage = all.select{|manager| manager.department == department}
+        return manage[0].employees[0].name
     end
 
     def tax_bracket
